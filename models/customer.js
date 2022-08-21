@@ -65,7 +65,7 @@ router.get("/largestBuy", (request, response) => {
   shop_order.address, shop_order.order_date, shop_order.shipping_date,
   (shop_order.quantity * item.price) AS order_amount
   FROM shop_order, item, customer
-  WHERE '${request.query.cEmail}' = shop_order.custEmail
+  WHERE '${request.query.cEmail}' = shop_order.custEmail AND item.id = shop_order.itemID
   Group BY 1,2,3,4,5
   ORDER BY order_amount
   DESC LIMIT 1`;
