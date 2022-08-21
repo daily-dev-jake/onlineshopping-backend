@@ -61,7 +61,7 @@ router.get("/customer/all", (request, response) => {
 
 // GET API 3 -> Display the highest cost order made by the customer
 router.get("/largestBuy", (request, response) => {
-  const sqlst = `SELECT shop_order.custEmail, shop_order.id,
+  const sqlst = `SELECT shop_order.id, item.name, 
   shop_order.address, shop_order.order_date, shop_order.shipping_date,
   (shop_order.quantity * item.price) AS order_amount
   FROM shop_order, item, customer
